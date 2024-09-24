@@ -48,20 +48,20 @@ function App() {
         <div className="fixed flex flex-wrap justify-center bottom-12 inset-x-0 px-2">
           <div className="flex flex-wrap justify-center gap-3 shadow-lg bg-white px-3 py-2 rounded-3xl">
             <button
-              onClick={() => setColor("red")}
+              onClick={() => setColor("skyblue")}
               className="outline-none px-4 py-1 rounded-full text-white shadow-lg"
-              style={{ backgroundColor: "red" }}
-            >Red</button>
+              style={{ backgroundColor: "skyblue" }}
+            >SkyBlue</button>
             <button
-              onClick={() => setColor("green")}
+              onClick={() => setColor("Lightgreen")}
               className="outline-none px-4 py-1 rounded-full text-white shadow-lg"
-              style={{ backgroundColor: "green" }}
-            >Green</button>
+              style={{ backgroundColor: "Lightgreen" }}
+            >LightGreen</button>
             <button
-              onClick={() => setColor("blue")}
+              onClick={() => setColor("Violet")}
               className="outline-none px-4 py-1 rounded-full text-white shadow-lg"
-              style={{ backgroundColor: "blue" }}
-            >Blue</button>
+              style={{ backgroundColor: "Violet" }}
+            >Violet</button>
           </div>
         </div>
       </div>
