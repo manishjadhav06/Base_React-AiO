@@ -21,9 +21,8 @@ function App() {
 
   return (
     <>
-
-      <div className="w-auto h-screen py-8 duration-200" style={{ backgroundColor: color }}>
-        <div className="max-w-md mx-auto shadow-md rounded-lg px-4 py-3 bg-gray-400 text-orange-500">
+      <div className="h-screen py-8 duration-200" style={{ backgroundColor: color }}>
+        <div className="max-w-md mx-auto shadow-md rounded-lg px-4 py-3 bg-gray-400 text-black-500">
           <h1 className="text-white">Password Generator</h1>
           <div className="flex shadow rounded-lg overflow-hidden mb-4">
             <input type="text" value={passw} className="outline-none w-full py-1 px-3" placeholder="Password" readOnly />
