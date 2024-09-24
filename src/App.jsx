@@ -22,6 +22,8 @@ function App() {
   return (
     <>
       <div className="h-screen py-8 duration-200" style={{ backgroundColor: color }}>
+
+                        {/* -------------- Password Generator --------------- */}
         <div className="max-w-md mx-auto shadow-md rounded-lg px-4 py-3 bg-gray-400 text-black-500">
           <h1 className="text-white">Password Generator</h1>
           <div className="flex shadow rounded-lg overflow-hidden mb-4">
@@ -43,26 +45,27 @@ function App() {
             </div>
           </div>
         </div>
-
+                         {/* ------------------- BG Changer -------------------- */}
         <div className="fixed flex flex-wrap justify-center bottom-12 inset-x-0 px-2">
           <div className="flex flex-wrap justify-center gap-3 shadow-lg bg-white px-3 py-2 rounded-3xl">
             <button
               onClick={() => setColor("skyblue")}
               className="outline-none px-4 py-1 rounded-full text-white shadow-lg"
-              style={{ backgroundColor: "skyblue" }}
-            >SkyBlue</button>
+              style={{ backgroundColor: "skyblue" }}>SkyBlue</button>
             <button
               onClick={() => setColor("Lightgreen")}
               className="outline-none px-4 py-1 rounded-full text-white shadow-lg"
-              style={{ backgroundColor: "Lightgreen" }}
-            >LightGreen</button>
+              style={{ backgroundColor: "Lightgreen" }}>LightGreen</button>
             <button
               onClick={() => setColor("Violet")}
               className="outline-none px-4 py-1 rounded-full text-white shadow-lg"
-              style={{ backgroundColor: "Violet" }}
-            >Violet</button>
+              style={{ backgroundColor: "Violet" }}>Violet</button>
           </div>
         </div>
+
+        {/*  */}
+
+
       </div>
     </>
   )
