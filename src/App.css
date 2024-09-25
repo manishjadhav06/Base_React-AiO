@@ -2,3 +2,10 @@
   margin: 0 auto;
   text-align: center;
 }
+
+#copyBtn{
+  transition: .6s;
+}
+#copyBtn:hover{
+  background-color: rgb(75, 75, 221);
+}
