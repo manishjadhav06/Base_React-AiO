@@ -28,6 +28,9 @@ function App() {
   useEffect(()=>{
     passwordGenerator()
   },[length, num, char, setPassw])
+  useEffect(()=>{
+    alert(`The BG color is set to ${color}`)
+  }, [color])
 
   const passwRef= useRef(null)
 
