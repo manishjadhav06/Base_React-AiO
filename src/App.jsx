@@ -4,6 +4,7 @@ function App() {
   const [length, setLength] = useState(8)
   const [num, setNum] = useState(false)
   const [char, setChar] = useState(false)
+  const [passw, setPassw] = useState("")
 
   const copyClip= useCallback(()=>{
     passwRef.current?.select()
@@ -12,7 +13,6 @@ function App() {
   },[passw])
 
 
-  const [passw, setPassw] = useState("")
   const passwordGenerator = useCallback(() => {
     let pass = ""
     let str = "abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWX YZ"
@@ -31,7 +31,7 @@ function App() {
   
   const passwRef= useRef();
 
-  
+
   const [color, setColor] = useState("white")
   const changeColorWithState = (newColor) => {
     setColor(newColor);
