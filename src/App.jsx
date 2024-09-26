@@ -5,7 +5,12 @@ function App() {
   const [num, setNum] = useState(false)
   const [char, setChar] = useState(false)
   const [passw, setPassw] = useState("")
+
   const [color, setColor] = useState("white")
+  const changeColorWithState = (newColor) => {
+    setColor(newColor);
+    document.body.style.backgroundColor = newColor;
+  };
 
   const passwordGenerator = useCallback(() => {
     let pass = ""
@@ -28,15 +33,23 @@ function App() {
   useEffect(()=>{
     passwordGenerator()
   },[length, num, char, setPassw])
-  useEffect(()=>{
-    alert(`The BG color is set to ${color}`)
-  }, [color])
+  
+  // useEffect(()=>{
+  //   alert(`The BG color is set to ${color}`)
+  // }, [color])
+  const passwRef= useRef();
 
-  const passwRef= useRef(null)
+  const colorRef = useRef(null)
+  const changeColor = () => {
+    const newColor = colorRef.current.value;
+    document.body.style.backgroundColor = newColor;
+  };
+
+  console.log("It rendered")
 
   return (
     <>
-      <div className="h-screen py-8 duration-200" style={{ backgroundColor: color }}>
+      <div className="h-screen py-8 duration-200">
 
                         {/* -------------- Password Generator --------------- */}
         <div className="max-w-md mx-auto shadow-md rounded-lg px-4 py-3 bg-gray-400 text-black-500">
@@ -60,19 +73,28 @@ function App() {
             </div>
           </div>
         </div>
+
+
+        <div className="max-w-md mx-auto shadow-md rounded-lg px-4 py-4 mt-6 bg-yellow-200 text-black-500">
+          <h1 className="text-black">Custom change BG color</h1>
+            <input type="text" className="rounded-2xl outline-none w-full py-1 px-3" placeholder="Enter colour"  ref={colorRef}></input>
+            <button id="copyBtn" className="mt-4 rounded-2xl outline-none bg-blue-300 text-white px-3 py-1 shrink-0" onClick={changeColor}>Custom change</button>
+          
+        </div>
+
                          {/* ------------------- BG Changer -------------------- */}
         <div className="fixed flex flex-wrap justify-center bottom-12 inset-x-0 px-2">
           <div className="flex flex-wrap justify-center gap-3 shadow-lg bg-white px-3 py-2 rounded-3xl">
             <button
-              onClick={() => setColor("skyblue")}
+               onClick={() => changeColorWithState("skyblue")}
               className="outline-none px-4 py-1 rounded-full text-white shadow-lg"
               style={{ backgroundColor: "skyblue" }}>SkyBlue</button>
             <button
-              onClick={() => setColor("Lightgreen")}
+              onClick={() => changeColorWithState("LightGreen")}
               className="outline-none px-4 py-1 rounded-full text-white shadow-lg"
               style={{ backgroundColor: "Lightgreen" }}>LightGreen</button>
             <button
-              onClick={() => setColor("Violet")}
+              onClick={() => changeColorWithState("Violet")}
               className="outline-none px-4 py-1 rounded-full text-white shadow-lg"
               style={{ backgroundColor: "Violet" }}>Violet</button>
           </div>
