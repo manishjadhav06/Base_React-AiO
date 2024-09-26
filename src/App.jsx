@@ -4,14 +4,15 @@ function App() {
   const [length, setLength] = useState(8)
   const [num, setNum] = useState(false)
   const [char, setChar] = useState(false)
+
+  const copyClip= useCallback(()=>{
+    passwRef.current?.select()
+    passwRef.current?.setSelectionRange(0,length)
+    window.navigator.clipboard.writeText(passw)
+  },[passw])
+
+
   const [passw, setPassw] = useState("")
-
-  const [color, setColor] = useState("white")
-  const changeColorWithState = (newColor) => {
-    setColor(newColor);
-    document.body.style.backgroundColor = newColor;
-  };
-
   const passwordGenerator = useCallback(() => {
     let pass = ""
     let str = "abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWX YZ"
@@ -23,29 +24,29 @@ function App() {
     }
     setPassw(pass)
   }, [length, num, char, setPassw])
-
-  const copyClip= useCallback(()=>{
-    passwRef.current?.select()
-    passwRef.current?.setSelectionRange(0,length)
-    window.navigator.clipboard.writeText(passw)
-  },[passw])
-
+  
   useEffect(()=>{
     passwordGenerator()
   },[length, num, char, setPassw])
   
-  // useEffect(()=>{
-  //   alert(`The BG color is set to ${color}`)
-  // }, [color])
   const passwRef= useRef();
 
+  
+  const [color, setColor] = useState("white")
+  const changeColorWithState = (newColor) => {
+    setColor(newColor);
+    document.body.style.backgroundColor = newColor;
+  };
+
   const colorRef = useRef(null)
-  const changeColor = () => {
+  const changeColorWithRef = () => {
     const newColor = colorRef.current.value;
     document.body.style.backgroundColor = newColor;
   };
 
-  console.log("It rendered")
+  // useEffect(()=>{
+  //   alert(`The BG color is set to ${color}`)
+  // }, [color])
 
   return (
     <>
@@ -74,15 +75,15 @@ function App() {
           </div>
         </div>
 
-
+                       {/* ---------------Change color with useRef--------------- */}
         <div className="max-w-md mx-auto shadow-md rounded-lg px-4 py-4 mt-6 bg-yellow-200 text-black-500">
           <h1 className="text-black">Custom change BG color</h1>
             <input type="text" className="rounded-2xl outline-none w-full py-1 px-3" placeholder="Enter colour"  ref={colorRef}></input>
-            <button id="copyBtn" className="mt-4 rounded-2xl outline-none bg-blue-300 text-white px-3 py-1 shrink-0" onClick={changeColor}>Custom change</button>
+            <button id="copyBtn" className="mt-4 rounded-2xl outline-none bg-blue-300 text-white px-3 py-1 shrink-0" onClick={changeColorWithRef}>Custom change</button>
           
         </div>
 
-                         {/* ------------------- BG Changer -------------------- */}
+                   {/* ------------------- BG Changer useState -------------------- */}
         <div className="fixed flex flex-wrap justify-center bottom-12 inset-x-0 px-2">
           <div className="flex flex-wrap justify-center gap-3 shadow-lg bg-white px-3 py-2 rounded-3xl">
             <button
