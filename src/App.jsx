@@ -76,12 +76,16 @@ function App() {
         </div>
 
                        {/* ---------------Change color with useRef--------------- */}
-        <div className="max-w-md mx-auto shadow-md rounded-lg px-4 py-4 mt-6 bg-yellow-200 text-black-500">
+        {/* <div className="max-w-md mx-auto shadow-md rounded-lg px-4 py-4 mt-6 bg-yellow-200 text-black-500">
           <h1 className="text-black">Custom change BG color</h1>
             <input type="text" className="rounded-2xl outline-none w-full py-1 px-3" placeholder="Enter colour"  ref={colorRef}></input>
             <button id="copyBtn" className="mt-4 rounded-2xl outline-none bg-blue-300 text-white px-3 py-1 shrink-0" onClick={changeColorWithRef}>Custom change</button>
           
-        </div>
+        </div> */}
+
+                    {/* ---------------Currency Converter--------------- */}
+
+        
 
                    {/* ------------------- BG Changer useState -------------------- */}
         <div className="fixed flex flex-wrap justify-center bottom-12 inset-x-0 px-2">
